@@ -1,0 +1,8 @@
+{
+  "rules": {
+    // ... other rules
+
+    // Add this rule to allow the usage of Sequelize Op object
+    "no-undef": ["error", { "typeof": true }],
+  }
+}

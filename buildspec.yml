@@ -1,0 +1,21 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18.x
+  build:
+    commands:
+      - echo installing npm
+      - npm install
+      - echo "Building aerohyre-jobservice"
+      - npm run build
+artifacts:
+  files:
+    - '**/*'
+  # base-directory: 'build'
+env:
+  variables:
+    AWS_DEFAULT_REGION: "ap-southeast-1"
+cache:
+  paths:
+    - 'node_modules/**/*'

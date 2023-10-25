@@ -1,0 +1,21 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/job
+  - source: /aerohyre-job.service
+    destination: /etc/systemd/system
+hooks:
+  ApplicationStop:
+    - location: deploy_scripts/application_stop.sh
+      timeout: 300
+  BeforeInstall:
+    - location: deploy_scripts/before_install.sh
+      timeout: 120
+  ApplicationStart:
+    - location: deploy_scripts/application_start.sh
+      timeout: 120
+  ValidateService:
+    - location: deploy_scripts/application_validation.sh
+      timeout: 60
+file_exists_behavior: OVERWRITE

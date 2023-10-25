@@ -1,0 +1,15 @@
+[Unit]
+Description=aerohyre-job
+After=network.target
+
+[Service]
+User=root
+#StandardOutput=file:/var/log/job-dev/access.log
+#StandardError=file:/var/log/job-dev/error.log
+
+WorkingDirectory=/var/www/job/build/src/
+ExecStart=/usr/bin/node /var/www/job/build/src/app.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
