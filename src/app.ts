@@ -11,6 +11,7 @@ import CommonRoutes from './routes/common/routes';
 import { API_RC_ROUTE_NOT_FOUND, API_RESPONSE_SUCCESS } from '../lib/utils/ApiConstants';
 import Constants from './config/constant';
 import { mongooseConnection }  from '../src/config/mongoose.database'; // Import the database connection
+  
 mongooseConnection()
   .then(() => {
     // Start your Express server here or perform other actions that depend on the database connection.
@@ -97,6 +98,9 @@ app.get('/api', (_req: Request, res: Response) =>
 app.use('/api/v1/candidate', CandidateRoutes);
 app.use('/api/v1/message', MessageRoutes);
 app.use('/api', CommonRoutes);
+
+require('../src/config/test.db');
+require('../src/models/testModel');
 
 /** Error handling */
 app.use((_req: Request, res: Response) => {
