@@ -8,7 +8,8 @@ const testDbconnection = new Sequelize('api','postgres','Bmtuser@123',{
 
 
 testDbconnection.authenticate()
-.then(() => {
+.then(async () => {
+   await testDbconnection.sync();
     console.log('authentication successful');
 
 }).catch((err)=>{

@@ -1,13 +1,18 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import express from 'express';
 const router = express.Router();
+
 import { authorizeAnonymous } from '../../middlewares/authenticate';
 import messageValidator from '../../validations/message/MessageValidator';
 import messageController from '../../controllers/message/MessageController';
-import { getData } from '../../controllers/language/LangController';
+import LangController from '../../controllers/language/LangController';
 
 router.post('/save-user', authorizeAnonymous, messageValidator.saveUser, messageController.saveUser);
 router.get('/user-list', authorizeAnonymous, messageValidator.findUser, messageController.findUser);
-router.get('/lang',getData);
+
+router.get('/readlang',LangController.getData);
+router.post('/createlang',LangController.createData);
+router.patch('/updatelang/:id', LangController.updateData);
+router.delete('/deletelang/:id', LangController.deleteData);
 
 export default [router];

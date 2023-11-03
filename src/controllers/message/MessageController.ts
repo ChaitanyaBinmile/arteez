@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import { sendResponse } from '../../../lib/utils/JsonResponse';
 import { RESPONSE_CODE } from '../../../lib/utils/ApiConstants';
 import { getMessages } from '../../../lib/utils/languageHelper';
@@ -48,8 +48,6 @@ const findUser = async (req: ExtendedRequest, res: Response) => {
     }
   }
 };
-
-
 
 const messageController = {
   saveUser,
