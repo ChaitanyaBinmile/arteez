@@ -34,15 +34,16 @@ const getDataServiceByID = async (req: Request, res: Response) => {
 const createDataService = async (req: Request, res: Response) => {
   try {
     const data: ResponseData = req.body as ResponseData;
+
     const newData = {
       name: data.name,
     };
 
     await languages.create(newData);
     return true;
-  } catch (error) {
+  } catch (error: any) {
     const errorData: ResponseData = {
-      name: 'Error occurred',
+      name: 'error',
     };
 
     res.json(errorData);

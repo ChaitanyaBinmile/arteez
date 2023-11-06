@@ -100,7 +100,9 @@ app.use('/api/v1/message', MessageRoutes);
 app.use('/api', CommonRoutes);
 
 require('../src/config/test.db');
-require('../src/models/testModel');
+// require('../src/models/testModel');
+
+// require('../src/models/encryptModel');
 
 /** Error handling */
 app.use((_req: Request, res: Response) => {

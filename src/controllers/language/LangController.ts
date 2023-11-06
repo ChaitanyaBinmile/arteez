@@ -47,7 +47,7 @@ const createData = async (req: Request, res: Response) => {
       res.json(errorData);
     }
   } else {
-    res.send('error');
+    res.send(error);
   }
 };
 const updateData = async (req: Request, res: Response) => {
